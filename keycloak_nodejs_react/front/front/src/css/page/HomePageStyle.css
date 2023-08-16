@@ -1,0 +1,12 @@
+.home_page .home_page_cards{
+    margin-top: 2%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 20%;
+    justify-items: center;
+}
+
+.home_page > h1{
+    text-align: center;
+    font-size: 200%;
+}

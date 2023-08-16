@@ -1,0 +1,15 @@
+.card{
+    border: 2px solid rgb(128, 128, 128);
+    border-radius: 20px;
+    width: 70%;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(235, 235, 235, 0.582);
+    cursor: pointer;
+}
+.card:active{
+    width: 69%;
+    height: 29vh;
+}

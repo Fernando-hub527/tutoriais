@@ -1,0 +1,38 @@
+.user_modal_background{
+    background-color: rgba(0, 0, 0, 0.062);
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    z-index: 1;
+}
+
+.user_icon{
+    cursor: pointer;
+}
+
+.user_modal{
+    z-index: 2;
+    position: absolute;
+    background-color: white;
+    border-radius: 20px;
+    width: 20%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.user_modal h1{
+    font-size: 1.8vw;
+}
+
+.user_modal button{
+    background-color: brown;
+    border: none;
+    color: white;
+    width: 30%;
+    height: 20%;
+    cursor: pointer;
+}
