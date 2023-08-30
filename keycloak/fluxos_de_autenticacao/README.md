@@ -1,6 +1,6 @@
 # FLUXOS DE AUTENTICAÇÃO - AUTHORIZATION CODE
 
-<img src="authorizationCode.png" width="350" title="hover text">
+<img src="representacoes/authorizationCode.png" width="350" title="hover text">
 </br></br>
 
 O authorization code é um fluxo de autenticação muito usado em aplicações webs e mobile, isso porque considerando que os ambientes onde essas aplicações rodam são ambientes "inseguros", é necessário que sejam tomadas medidas para amenizar os riscos.
