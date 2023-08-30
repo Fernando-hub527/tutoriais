@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  app_dev:
+    image: node:alpine
+    container_name: app_dev_test
+    working_dir: /app
+    restart: always
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./app/:/app
+    command: npm run dev
+
