@@ -1,4 +1,4 @@
-keycloak_nodejs_react/api/node_modules/
+keycloak/keycloak_nodejs_react/api/node_modules/
 ambiente_dev/app/node_modules/
 ambiente_dev/app/env/test/.env
 ambiente_dev/app/env/dev/.env
