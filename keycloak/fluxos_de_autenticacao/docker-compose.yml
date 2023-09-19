@@ -1,23 +1,89 @@
-version: '3'
+# version: '3'
 
-services:
+# services:
+#   db:
+#     container_name: db_mysql
+#     image: mysql:latest
+#     environment:
+#       - MYSQL_ROOT_PASSWORD=root_pwd
+#       - MYSQL_USER=admin
+#       - MYSQL_PASSWORD=pa55word
+#     ports:
+#       - "3306:3306"
+#     volumes:
+#       - .docker/db/mysql:/var/lib/mysql
+#     networks:
+#       - xpto
+
+#   keycloak:
+#     container_name: keycloak
+#     image: quay.io/keycloak/keycloak:19.0.1
+#     environment:
+#       - KEYCLOAK_ADMIN=admin
+#       - KEYCLOAK_ADMIN_PASSWORD=admin
+#       - KC_DB=mysql
+#       - KC_DB_USERNAME=admin
+#       - KC_DB_PASSWORD=pa55word
+#       - KC_DB_URL_HOST=db
+#       - KC_DB_URL_PORT=3306
+#       - KC_DB_SCHEMA=keycloak
+#     ports:
+#       - 8080:8080
+#     command: start-dev
+#     depends_on:
+#       - db
+#     networks:
+#       - xpto
+
+
+
+#   app_dev:
+#     image: node:alpine
+#     container_name: app_dev_test
+#     working_dir: /app
+#     restart: always
+#     ports:
+#       - "3001:3001"
+#     volumes:
+#       - ./app/:/app
+#     command: npm run code
+#     networks:
+#       - xpto
+
+# networks:
+#   xpto:
+#     external: true
+
+
+version: '3.3'
+
+services:            
   keycloak:
     container_name: keycloak
-    image: quay.io/keycloak/keycloak:19.0.1
+    image: quay.io/keycloak/keycloak:21.1
+    command: start-dev
+    ports:
+      - 8080:8080
     environment:
       - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=admin
-    ports:
-      - 8080:8080
-    command: start-dev
-  app_dev:
-    image: node:alpine
-    container_name: app_dev_test
-    working_dir: /app
-    restart: always
-    ports:
-      - "3001:3001"
-    volumes:
-      - ./app/:/app
-    command: npm run code
-
+      - KC_DB=mysql
+      - KC_DB_URL=jdbc:mysql://dbb:3306/keycloak
+      - KC_DB_USERNAME=root
+      - KC_DB_PASSWORD=root
+    
+    depends_on:
+      dbb:
+        condition: service_healthy
+  dbb:
+    image: mysql:8.1.30-debian
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=keycloak
+    # volumes:
+    #   - ./.docker/db:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 10s
+      retries: 3

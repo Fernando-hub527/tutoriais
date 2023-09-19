@@ -3,3 +3,5 @@ ambiente_dev/app/node_modules/
 ambiente_dev/app/env/test/.env
 ambiente_dev/app/env/dev/.env
 keycloak/fluxos_de_autenticacao/app/node_modules/
+keycloak/fluxos_de_autenticacao/.docker/db/
+nodejs+ota/app/node_modules/

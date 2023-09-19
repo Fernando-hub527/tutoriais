@@ -13,3 +13,6 @@ Algumas características positivas são:
 O uso desse código faz toda a diferença, pois dessa forma o token de acesso, que é a "chave" usada para acessar o sistema, não fica exposto na url.
 
 Nessa pasta você pode conferir um exemplo da implementação desse fluxo usando apenas nodejs, sem uso de libs.
+
+Antes de iniciarmos a demonstração dos fluxos é necessário realizar a configuração do keycloak, para isso é necessário criar um client, a única configuração que precisa ser mudada é a das urls válidas, de redirecionamento e de origem.
+Após a criação do cliente basta realizar a criação de um usuário para teste, em seguida entre no link OpenID Endpoint configuration e procure pelo campo "authorization_endpoint", ele indica qual url você deve usar para realizar a conexão com o keycloak.
